@@ -106,7 +106,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
 
         Node currentNode = sentinel.next;
 
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 0; i < index; i++) {
             currentNode = currentNode.next;
         }
 
