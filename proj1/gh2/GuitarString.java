@@ -2,7 +2,6 @@ package gh2;
 
 import deque.ArrayDeque;
 import deque.Deque;
-import deque.LinkedListDeque;
 
 public class GuitarString {
     private static final int SR = 44100;      // Sampling Rate
@@ -39,10 +38,6 @@ public class GuitarString {
      * the Karplus-Strong algorithm.
      */
     public void tic() {
-        // TODO: Dequeue the front sample and enqueue a new sample that is
-        //       the average of the two multiplied by the DECAY factor.
-        //       **Do not call StdAudio.play().**
-
         double removedFront = buffer.removeFirst();
         double front = buffer.get(0);
 

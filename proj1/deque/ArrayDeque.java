@@ -1,7 +1,5 @@
 package deque;
 
-
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
@@ -47,7 +45,9 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
         int pos = last ? this.nextLast : this.nextFirst;
         int offset = 1;
 
-        if (last && !next || !last && next) offset = -1;
+        if (last && !next || !last && next) {
+            offset = -1;
+        }
 
         return getPos(pos + offset);
     }
@@ -62,7 +62,9 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
 
     @Override
     public void addFirst(T item) {
-        if (isFull()) resize(this.size * 2);
+        if (isFull()) {
+            resize(this.size * 2);
+        }
 
         this.items[nextFirst] = item;
         this.size = this.size + 1;
@@ -72,7 +74,9 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
 
     @Override
     public void addLast(T item) {
-        if (isFull()) resize(this.size * 2);
+        if (isFull()) {
+            resize(this.size * 2);
+        }
 
         this.items[this.nextLast] = item;
         this.size = this.size + 1;
@@ -93,7 +97,9 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
             int idx = getPos(i + nextFirst + 1);
 
             System.out.print(this.items[idx]);
-            if (i + 1 < this.size) System.out.print(" -> ");
+            if (i + 1 < this.size) {
+                System.out.print(" -> ");
+            }
         }
 
         System.out.println(" }");
@@ -101,7 +107,9 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
 
     @Override
     public T removeFirst() {
-        if (isEmpty()) return null;
+        if (isEmpty()) {
+            return null;
+        }
 
         int idx = getPosAuto(false, false);
         T removedItem = this.items[idx];
@@ -110,14 +118,18 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
         this.nextFirst = idx;
         this.size = this.size - 1;
 
-        if (isBig()) resize(this.items.length / 2);
+        if (isBig()) {
+            resize(this.items.length / 2);
+        }
 
         return removedItem;
     }
 
     @Override
     public T removeLast() {
-        if (isEmpty()) return null;
+        if (isEmpty()) {
+            return null;
+        }
 
         int idx = getPosAuto(true, false);
         T removedItem = this.items[idx];
@@ -126,7 +138,9 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
         this.nextLast = idx;
         this.size = this.size - 1;
 
-        if (isBig()) resize(this.items.length / 2);
+        if (isBig()) {
+            resize(this.items.length / 2);
+        }
 
         return removedItem;
     }
@@ -163,6 +177,7 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
             this.current = 0;
         }
 
+        @Override
         public boolean hasNext() {
             return this.current < size();
         }
