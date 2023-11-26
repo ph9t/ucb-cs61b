@@ -38,7 +38,7 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
     }
 
     private boolean isBig() {
-        return (float) this.size / this.items.length < 0.25 && this.size > 16;
+        return (float) this.size / this.items.length < 0.25 && this.items.length > 8;
     }
 
     private int getPosAuto(boolean last, boolean next) {
