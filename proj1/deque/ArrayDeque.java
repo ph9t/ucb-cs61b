@@ -155,16 +155,6 @@ public class ArrayDeque<T>  implements Deque<T>, Iterable<T> {
         return this.items[idx];
     }
 
-    public static <E> ArrayDeque<E> of(E... args) {
-        ArrayDeque<E> ADT = new ArrayDeque<>();
-
-        for (E x: args) {
-            ADT.addLast(x);
-        }
-
-        return ADT;
-    }
-
     @Override
     public Iterator<T> iterator() {
         return new ArrayDequeIterator();

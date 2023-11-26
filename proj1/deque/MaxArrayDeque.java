@@ -35,14 +35,4 @@ public class MaxArrayDeque<T extends Comparable<T>> extends ArrayDeque<T> {
             return o1.compareTo(o2);
         }
     }
-
-    public static <E extends Comparable<E>> MaxArrayDeque<E> of(Comparator<E> c, E... args) {
-        MaxArrayDeque<E> MAD = new MaxArrayDeque<>(c);
-
-        for (E x: args) {
-            MAD.addLast(x);
-        }
-
-        return MAD;
-    }
 }
