@@ -2,7 +2,7 @@ package deque;
 
 import java.util.Comparator;
 
-public class MaxArrayDeque<T extends Comparable<T>> extends ArrayDeque<T> {
+public class MaxArrayDeque<T> extends ArrayDeque<T> {
     Comparator<T> comparator;
 
     public MaxArrayDeque(Comparator<T> c) {
@@ -29,9 +29,9 @@ public class MaxArrayDeque<T extends Comparable<T>> extends ArrayDeque<T> {
     }
 
 
-    private static class NaturalOrderComparator<T extends Comparable<T>> implements Comparator<T> {
+    private static class NaturalOrderComparator<E extends Comparable<E>> implements Comparator<E> {
         @Override
-        public int compare(T o1, T o2) {
+        public int compare(E o1, E o2) {
             return o1.compareTo(o2);
         }
     }
