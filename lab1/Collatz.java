@@ -2,12 +2,15 @@
  *  @author YOUR NAME HERE
  */
 public class Collatz {
-    /** Identifies next number in a Collatz sequence, given N
-     * @param number the nth number
-     * */
-    public static int nextNumber(int number) {
-        boolean isEven = (number % 2 == 0);
-        return  isEven ? (number / 2) : (3 * number + 1);
+    /** Buggy implementation of nextNumber! */
+    public static int nextNumber(int n) {
+        if (n  == 128) {
+            return 1;
+        } else if (n == 5) {
+            return 3 * n + 1;
+        } else {
+            return n * 2;
+        }
     }
 
     public static void main(String[] args) {
